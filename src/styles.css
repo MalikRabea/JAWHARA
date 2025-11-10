@@ -1,0 +1,245 @@
+/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+
+@import "preline/variants.css";
+@source "../node_modules/preline/dist/*.js";
+
+/* Toastify CSS */
+@import "toastify-js/src/toastify.css";
+
+
+/* احذف الشفافية هنا */
+.toast-success .toastify > div {
+  background: green !important; /* أخضر */
+  color: #fff !important;
+}
+
+.toast-error .toastify > div {
+  background: #ef4444 !important; /* أحمر */
+  color: #fff !important;
+}
+
+.toast-warning .toastify > div {
+  background: #f59e0b !important; /* أصفر */
+  color: #fff !important;
+}
+
+.toast-info .toastify > div {
+  background: #3b82f6 !important; /* أزرق */
+  color: #fff !important;
+}
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Brand Palette */
+:root {
+  /* CSS HEX */
+  --old-brick: #951b2d;
+  --wisp-pink: #fdeef0;
+  --emperor: #545454;
+  --au-chico: #9b5a65;
+  --oriental-pink: #c9969f;
+  --blossom: #dbb9be;
+  --tawny-port: #7b2a37;
+
+  /* Semantic aliases */
+  --color-primary: var(--old-brick);
+  --color-primary-contrast: #ffffff;
+  --color-secondary: var(--tawny-port);
+  --color-accent: var(--au-chico);
+  --color-surface: #ffffff;
+  --color-on-surface: var(--emperor);
+  --color-background: var(--wisp-pink);
+}
+
+/* Custom animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes progress-bar {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Utility classes */
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 3s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 2s linear infinite;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.5s ease-out;
+}
+
+.animate-progress-bar {
+  animation: progress-bar 3s ease-in-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-shine {
+  animation: shine 2s infinite;
+}
+
+.animate-shimmer {
+  animation: shimmer 1.5s infinite;
+}
+
+/* Responsive utilities */
+@media (max-width: 640px) {
+  .text-responsive-xl {
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+  .text-responsive-2xl {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .text-responsive-3xl {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+}
+
+@media (min-width: 641px) {
+  .text-responsive-xl {
+    font-size: 2.5rem;
+    line-height: 3rem;
+  }
+  .text-responsive-2xl {
+    font-size: 3rem;
+    line-height: 3.5rem;
+  }
+  .text-responsive-3xl {
+    font-size: 4rem;
+    line-height: 4.5rem;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom focus styles */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2;
+}
+
+/* Loading state utilities */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Button hover effects */
+.btn-hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-hover-lift:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}

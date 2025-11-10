@@ -1,0 +1,67 @@
+.stepper-container {
+  @apply w-full;
+}
+
+/* Step Circle States */
+.step-completed {
+  @apply bg-green-500 border-green-500 text-white;
+}
+
+.step-active {
+  @apply bg-blue-600 border-blue-600 text-white;
+}
+
+.step-pending {
+  @apply bg-gray-100 border-gray-300 text-gray-500;
+}
+
+.step-disabled {
+  @apply bg-gray-50 border-gray-200 text-gray-400 cursor-not-allowed;
+}
+
+/* Step Title States */
+.title-completed {
+  @apply text-green-600;
+}
+
+.title-active {
+  @apply text-blue-600;
+}
+
+.title-pending {
+  @apply text-gray-500;
+}
+
+.title-disabled {
+  @apply text-gray-400;
+}
+
+/* Connector Line States */
+.connector-completed {
+  @apply bg-green-500;
+}
+
+.connector-active {
+  @apply bg-blue-600;
+}
+
+.connector-pending {
+  @apply bg-gray-300;
+}
+
+/* Hover Effects */
+.step-completed:hover,
+.step-active:hover {
+  @apply transform scale-105;
+}
+
+.step-pending:hover {
+  @apply border-gray-400;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .stepper-container {
+    @apply px-4;
+  }
+}

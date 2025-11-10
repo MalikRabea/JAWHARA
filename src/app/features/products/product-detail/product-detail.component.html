@@ -1,0 +1,155 @@
+<!-- Product Detail (Tailwind + Preline) -->
+<div class="mx-auto max-w-6xl px-4 py-6">
+  <!-- Breadcrumbs -->
+  <nav class="mb-4 text-sm text-gray-500" aria-label="Breadcrumb">
+    <ol class="flex items-center gap-2">
+      <li><a class="hover:text-gray-900" routerLink="/">Home</a></li>
+      <li>/</li>
+      <li><a class="hover:text-gray-900" routerLink="/products">Products</a></li>
+      <li>/</li>
+      <li class="text-gray-900" aria-current="page">{{ product.title }}</li>
+    </ol>
+  </nav>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+    <!-- Gallery -->
+    <div>
+      <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-gray-100">
+        <img class="h-full w-full object-cover" [attr.alt]="product.title" [src]="product.images[selectedImageIndex]" loading="eager" decoding="async" />
+        <div *ngIf="discountPercentage !== null" class="absolute left-3 top-3 rounded-full bg-emerald-600 px-3 py-1 text-xs font-semibold text-white">-{{ discountPercentage }}%</div>
+      </div>
+      <div class="mt-4 grid grid-cols-4 gap-2">
+        <button type="button"
+                *ngFor="let thumb of product.images; let i = index"
+                (click)="selectImage(i)"
+                (keydown.enter)="selectImage(i)"
+                class="group relative rounded-xl overflow-hidden focus:outline-none focus:ring-2 focus:ring-gray-900"
+                [attr.aria-label]="'Select image ' + (i + 1)"
+                [attr.aria-pressed]="selectedImageIndex === i"
+                [attr.aria-selected]="selectedImageIndex === i"
+                [ngClass]="selectedImageIndex === i ? 'ring-2 ring-gray-900 border border-gray-900' : 'border border-gray-200'">
+          <img class="h-20 w-full object-cover transition-transform group-hover:scale-105" [attr.alt]="'Thumbnail ' + (i + 1) + ' of ' + product.title" [src]="thumb" loading="lazy" decoding="async" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Info -->
+    <div class="space-y-5">
+      <div class="flex items-start justify-between gap-3">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-semibold text-gray-900">{{ product.title }}</h1>
+          <div class="mt-1 flex items-center gap-2 text-sm">
+            <div class="flex items-center text-amber-500">
+              <ng-container *ngFor="let s of [1,2,3,4,5]; let idx = index">
+                <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" [class.text-gray-300]="product.rating < idx + 1">
+                  <path d="M12 .587l3.668 7.431 8.2 1.193-5.934 5.787 1.402 8.168L12 18.896l-7.336 3.87 1.402-8.168L.132 9.211l8.2-1.193z"/>
+                </svg>
+              </ng-container>
+            </div>
+            <span class="text-gray-500">({{ product.reviewsCount }} reviews)</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <button type="button" aria-label="Share on Facebook" class="hidden md:inline-flex h-9 w-9 items-center justify-center rounded-full border hover:bg-gray-50">
+            <svg class="h-4 w-4 text-[#1877F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.06C22 6.48 17.52 2 11.94 2S2 6.48 2 12.06C2 17.08 5.66 21.2 10.44 22v-7.02H7.9v-2.92h2.54v-2.23c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.45h-1.26c-1.24 0-1.62.77-1.62 1.56v1.9h2.77l-.44 2.92h-2.33V22C18.34 21.2 22 17.08 22 12.06z"/></svg>
+          </button>
+          <button type="button" aria-label="Share on Twitter" class="hidden md:inline-flex h-9 w-9 items-center justify-center rounded-full border hover:bg-gray-50">
+            <svg class="h-4 w-4 text-[#1DA1F2]" viewBox="0 0 24 24" fill="currentColor"><path d="M22.46 6c-.77.34-1.6.57-2.46.68.88-.53 1.55-1.37 1.87-2.37-.83.49-1.75.85-2.73 1.05C18.35 4.52 17.2 4 16 4c-2.35 0-4.26 1.9-4.26 4.25 0 .33.04.66.1.97-3.54-.18-6.68-1.88-8.78-4.46-.37.62-.58 1.34-.58 2.1 0 1.45.74 2.74 1.86 3.49-.69-.02-1.35-.21-1.93-.52v.05c0 2.03 1.45 3.73 3.37 4.11-.35.1-.73.16-1.11.16-.27 0-.53-.03-.78-.07.53 1.67 2.07 2.89 3.9 2.92-1.42 1.12-3.2 1.79-5.15 1.79-.33 0-.66-.02-.98-.06 1.84 1.18 4.03 1.87 6.38 1.87 7.65 0 11.83-6.34 11.83-11.83 0-.18 0-.35-.01-.53.82-.6 1.54-1.35 2.11-2.2z"/></svg>
+          </button>
+          <button type="button" aria-label="Copy link" class="hidden md:inline-flex h-9 items-center gap-2 rounded-full border px-3 hover:bg-gray-50" (click)="copyLink()">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor"><path d="M3 8a5 5 0 0 1 5-5h4v2H8a3 3 0 1 0 0 6h4v2H8A5 5 0 0 1 3 8zm18 8a5 5 0 0 1-5 5h-4v-2h4a3 3 0 1 0 0-6h-4v-2h4a5 5 0 0 1 5 5z"/></svg>
+            <span class="text-sm">Copy link</span>
+          </button>
+          <span *ngIf="product.inStock" class="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-3 py-1 text-xs font-medium text-emerald-700" aria-live="polite">In stock</span>
+          <span *ngIf="!product.inStock" class="inline-flex items-center gap-1 rounded-full bg-red-50 px-3 py-1 text-xs font-medium text-red-700" aria-live="polite">Out of stock</span>
+        </div>
+      </div>
+
+      <div class="flex items-end gap-3">
+        <p class="text-3xl font-bold text-gray-900">{{ product.currency }}{{ product.price | number:'1.0-2' }}</p>
+        <p *ngIf="product.oldPrice" class="text-gray-400 line-through">{{ product.currency }}{{ product.oldPrice | number:'1.0-2' }}</p>
+        <span *ngIf="discountPercentage !== null" class="text-emerald-600 text-sm font-medium">Save {{ discountPercentage }}%</span>
+      </div>
+
+      <p class="text-gray-600">{{ product.description }}</p>
+
+      <!-- Quantity + Actions -->
+      <div class="flex flex-wrap items-center gap-3">
+        <div class="inline-flex items-stretch rounded-xl border border-gray-300" role="group" aria-label="Choose quantity">
+          <button type="button" class="px-3 text-gray-700 hover:bg-gray-50" (click)="decrement()" aria-label="Decrease quantity">-</button>
+          <input type="text" class="w-12 border-x border-gray-300 text-center outline-none"
+                 role="spinbutton"
+                 [attr.aria-valuemin]="1"
+                 [attr.aria-valuenow]="quantity"
+                 aria-live="polite"
+                 [value]="quantity" readonly>
+          <button type="button" class="px-3 text-gray-700 hover:bg-gray-50" (click)="increment()" aria-label="Increase quantity">+</button>
+        </div>
+        <button type="button" (click)="addToCart()" [disabled]="!product.inStock"
+                class="inline-flex items-center gap-2 rounded-xl bg-gray-900 px-5 py-3 text-white hover:bg-gray-800"
+                [ngClass]="!product.inStock ? 'opacity-50 cursor-not-allowed' : ''">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor"><path d="M7 4h-2l-3 7v2h2l3-7h12l-2 9h-11l-1 3h12v2h-14l2-6h11l1-4h-12z"/></svg>
+          Add to cart
+        </button>
+        <button type="button" (click)="toggleWishlist()" class="rounded-xl border px-4 py-3 text-gray-700 hover:border-gray-900">Wishlist</button>
+      </div>
+
+      <!-- Accordion (Preline) -->
+      <div class="hs-accordion-group divide-y border rounded-xl" data-hs-accordion>
+        <div class="hs-accordion" id="acc-1">
+          <button class="hs-accordion-toggle flex w-full items-center justify-between px-4 py-3 text-left">
+            <span class="font-medium text-gray-900">Details</span>
+            <svg class="h-5 w-5 text-gray-500 transition group-[.hs-accordion-active]:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="hs-accordion-content overflow-hidden transition-[height] duration-300">
+            <div class="px-4 pb-4 text-gray-600">Studio‑quality audio with 40mm drivers, Bluetooth 5.3 and optimized ANC.</div>
+          </div>
+        </div>
+        <div class="hs-accordion" id="acc-2">
+          <button class="hs-accordion-toggle flex w-full items-center justify-between px-4 py-3 text-left">
+            <span class="font-medium text-gray-900">Specifications</span>
+            <svg class="h-5 w-5 text-gray-500 transition group-[.hs-accordion-active]:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+          <div class="hs-accordion-content overflow-hidden transition-[height] duration-300">
+            <div class="px-4 pb-4 grid grid-cols-2 gap-2 text-sm">
+              <div *ngFor="let spec of product.specs" class="flex justify-between border-b py-2"><span class="text-gray-500">{{ spec.label }}</span><span>{{ spec.value }}</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust badges -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
+        <div class="flex items-center gap-2 rounded-xl border p-3">
+          <svg class="h-5 w-5 text-emerald-600" viewBox="0 0 24 24" fill="currentColor"><path d="M20 8h-3l-3-3H4a2 2 0 0 0-2 2v10a3 3 0 0 0 3 3h13a3 3 0 0 0 3-3V10a2 2 0 0 0-2-2z"/></svg>
+          <span class="text-sm">Secure checkout</span>
+        </div>
+        <div class="flex items-center gap-2 rounded-xl border p-3">
+          <svg class="h-5 w-5 text-gray-900" viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18l-2 12H5L3 6zm5 14a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm8 0a2 2 0 1 0 .001 3.999A2 2 0 0 0 16 20z"/></svg>
+          <span class="text-sm">Fast shipping</span>
+        </div>
+        <div class="flex items-center gap-2 rounded-xl border p-3">
+          <svg class="h-5 w-5 text-gray-900" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l4 8 8 1-6 6 1 9-7-4-7 4 1-9-6-6 8-1 4-8z"/></svg>
+          <span class="text-sm">1-year warranty</span>
+        </div>
+        <div class="flex items-center gap-2 rounded-xl border p-3">
+          <svg class="h-5 w-5 text-gray-900" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22s8-4.35 8-12a8 8 0 0 0-16 0c0 7.65 8 12 8 12z"/></svg>
+          <span class="text-sm">30-day returns</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Sticky mobile CTA -->
+<div class="lg:hidden fixed bottom-0 inset-x-0 z-40 border-t bg-white/90 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+  <div class="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between gap-3">
+    <div class="flex items-baseline gap-2">
+      <span class="text-lg font-semibold text-gray-900">{{ product.currency }}{{ product.price | number:'1.0-2' }}</span>
+      <span *ngIf="product.oldPrice" class="text-sm text-gray-400 line-through">{{ product.currency }}{{ product.oldPrice | number:'1.0-2' }}</span>
+    </div>
+    <button type="button" (click)="addToCart()" [disabled]="!product.inStock"
+            class="rounded-xl bg-gray-900 px-4 py-2.5 text-white hover:bg-gray-800"
+            [ngClass]="!product.inStock ? 'opacity-50 cursor-not-allowed' : ''">Add to cart</button>
+  </div>
+</div>

@@ -1,0 +1,88 @@
+<div class="stepper-container">
+  <!-- Desktop Stepper -->
+  <div class="hidden md:block">
+    <div class="flex items-center justify-between">
+      <div 
+        *ngFor="let step of steps; let i = index" 
+        class="flex items-center flex-1"
+        [class.last]="i === steps.length - 1"
+      >
+        <!-- Step Circle -->
+        <div 
+          class="flex items-center justify-center w-10 h-10 rounded-full border-2 transition-all duration-200 cursor-pointer"
+          [class]="getStepClasses(step, i)"
+          (click)="onStepClick(i)"
+        >
+          <i 
+            *ngIf="step.completed || (i < currentStep)" 
+            class="hs-icon hs-icon-check text-sm"
+          ></i>
+          <span 
+            *ngIf="!step.completed && i >= currentStep" 
+            class="text-sm font-semibold"
+          >
+            {{ i + 1 }}
+          </span>
+        </div>
+
+        <!-- Step Content -->
+        <div class="ml-4 flex-1">
+          <h3 
+            class="text-sm font-semibold transition-colors duration-200"
+            [class]="getStepTitleClasses(step, i)"
+          >
+            {{ step.title }}
+          </h3>
+          <p 
+            *ngIf="step.description" 
+            class="text-xs text-gray-500 mt-1"
+          >
+            {{ step.description }}
+          </p>
+        </div>
+
+        <!-- Connector Line -->
+        <div 
+          *ngIf="i < steps.length - 1" 
+          class="flex-1 h-0.5 mx-4 transition-colors duration-200"
+          [class]="getConnectorClasses(step, i)"
+        ></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Stepper -->
+  <div class="md:hidden">
+    <div class="flex items-center justify-between mb-6">
+      <div 
+        *ngFor="let step of steps; let i = index" 
+        class="flex flex-col items-center flex-1"
+      >
+        <!-- Step Circle -->
+        <div 
+          class="flex items-center justify-center w-8 h-8 rounded-full border-2 transition-all duration-200 mb-2"
+          [class]="getStepClasses(step, i)"
+        >
+          <i 
+            *ngIf="step.completed || (i < currentStep)" 
+            class="hs-icon hs-icon-check text-xs"
+          ></i>
+          <span 
+            *ngIf="!step.completed && i >= currentStep" 
+            class="text-xs font-semibold"
+          >
+            {{ i + 1 }}
+          </span>
+        </div>
+
+        <!-- Step Title -->
+        <span 
+          class="text-xs font-medium text-center transition-colors duration-200"
+          [class]="getStepTitleClasses(step, i)"
+        >
+          {{ step.title }}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

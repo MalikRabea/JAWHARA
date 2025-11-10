@@ -1,0 +1,432 @@
+<!-- Enhanced E-commerce Header with 3 Layers -->
+<header class=" top-0 left-0 right-0 z-50 bg-white shadow-lg" id="main-header">
+
+    <!-- TOP BAR - Dark background with utilities -->
+    <div class="text-white py-2 text-sm" style="background-color: var(--color-primary);">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <!-- Left side - Welcome message -->
+                <div class="hidden md:flex items-center space-x-4">
+                    <span style="color: var(--color-primary-contrast);">Welcome to ShopHub - Your Premium Shopping
+                        Destination</span>
+                </div>
+
+                <!-- Right side - Language & Auth -->
+                <div class="flex items-center space-x-4 ml-auto">
+                    <!-- Language Switcher -->
+                    <div class="hs-dropdown relative inline-flex">
+                        <button id="hs-dropdown-language" type="button"
+                            class="hs-dropdown-toggle inline-flex items-center gap-x-2 text-sm transition-colors duration-200 focus:outline-hidden"
+                            style="color: var(--color-primary-contrast);" aria-haspopup="menu" aria-expanded="false"
+                            aria-label="Language">
+                            <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                            </svg>
+                            EN
+                            <svg class="hs-dropdown-open:rotate-180 w-3 h-3 transition-transform duration-200"
+                                style="color: var(--color-primary-contrast);" xmlns="http://www.w3.org/2000/svg"
+                                fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M6 9l6 6 6-6" />
+                            </svg>
+                        </button>
+                        <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden min-w-32 shadow-lg rounded-lg mt-2 border z-50"
+                            style="background-color: var(--color-surface);" role="menu" aria-orientation="vertical"
+                            aria-labelledby="hs-dropdown-language">
+                            <div class="p-1 space-y-0.5">
+                                <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm focus:outline-hidden"
+                                    style="color: var(--color-on-surface);" href="#">
+                                    🇺🇸 English
+                                </a>
+                                <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm focus:outline-hidden"
+                                    style="color: var(--color-on-surface);" href="#">
+                                    🇪🇸 Español
+                                </a>
+                                <a class="flex items-center gap-x-3 py-2 px-3 rounded-lg text-sm focus:outline-hidden"
+                                    style="color: var(--color-on-surface);" href="#">
+                                    🇫🇷 Français
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Auth Links -->
+                    <div class="flex items-center space-x-3">
+                        <a routerLink="/auth/login" class="transition-colors duration-200"
+                            style="color: var(--color-primary-contrast);">Login</a>
+                        <span style="color: var(--color-primary-contrast);">|</span>
+                        <a routerLink="/auth/register" class="transition-colors duration-200"
+                            style="color: var(--color-primary-contrast);">Register</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MIDDLE LAYER - Main navigation with logo -->
+    <div class="bg-white border-b border-gray-200 sticky-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a routerLink="/" class="flex items-center group">
+                        <img src="/logo.jpg" alt="Logo"
+                            class="w-30 h-12 rounded-xl object-cover  group-hover:scale-105 transition-transform duration-300" />
+                        <span class="text-2xl font-bold bg-clip-text text-transparent"
+                            style="background-image: linear-gradient(90deg, var(--color-primary), var(--color-secondary));">
+
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="hidden lg:flex items-center space-x-8">
+                    <a routerLink="/admin/users"
+                        class="hover:text-blue-600 font-medium transition-colors duration-300 relative group"
+                        style="color: var(--color-on-surface);">
+                        Home
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a routerLink="/products"
+                        class="hover:text-blue-600 font-medium transition-colors duration-300 relative group"
+                        style="color: var(--color-on-surface);">
+                        Shop
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                  
+                    <a routerLink="/about" class="hover:text-blue-600 font-medium transition-colors duration-300 relative group"
+                        style="color: var(--color-on-surface);">
+                        About
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#" class="hover:text-blue-600 font-medium transition-colors duration-300 relative group"
+                        style="color: var(--color-on-surface);">
+                        Contact
+                        <span
+                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+
+                  
+                </nav>
+
+                <!-- Right Side Icons -->
+                <div class="flex items-center space-x-4">
+                    <!-- Wishlist -->
+                    <button routerLink="/cart/wishlist"
+                        class="relative p-2 text-slate-800 hover:text-red-500 hover:bg-red-50 rounded-full transition-all duration-300 group">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                        </svg>
+                        <span
+                            class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">2</span>
+                    </button>
+
+                    <!-- Cart -->
+                    <button aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-sidebar-offcanvas"
+                        aria-label="Toggle navigation" data-hs-overlay="#hs-sidebar-offcanvas"
+                        class="relative p-2 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-all duration-300 group">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.293 2.293c-.39.39-.39 1.024 0 1.414L7 19m0-6a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z" />
+                        </svg>
+                        <span *ngIf="cartItemsCount > 0"
+                            class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center animate-pulse">{{cartItemsCount}}</span>
+                    </button>
+
+                    <!-- User Account -->
+                    <button class="p-2 hover:text-blue-600 hover:bg-blue-50 rounded-full transition-all duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                        </svg>
+                    </button>
+
+                    <!-- Mobile menu button -->
+                    <button type="button"
+                        class="lg:hidden hs-collapse-toggle p-2 hover:text-blue-600 hover:bg-blue-50 rounded-lg transition-all duration-300"
+                        data-hs-collapse="#mobile-menu" aria-controls="mobile-menu" aria-label="Toggle navigation">
+                        <svg class="hs-collapse-open:hidden w-6 h-6" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                        <svg class="hs-collapse-open:block hidden w-6 h-6" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hs-collapse hidden lg:hidden">
+            <div class="px-4 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+                <a routerLink="/"
+                    class="block px-3 py-2 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-200">Home</a>
+                <a routerLink="/products"
+                    class="block px-3 py-2 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-200">Shop</a>
+                  <a routerLink="/about"
+                    class="block px-3 py-2 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-200">About</a>
+                <a href="#"
+                    class="block px-3 py-2 hover:text-blue-600 hover:bg-blue-50 rounded-lg font-medium transition-all duration-200">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM LAYER - Categories and Search -->
+    <div class="text-white"
+        style="background-image: linear-gradient(90deg, var(--color-secondary), var(--color-primary));">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 py-3">
+
+                <!-- Categories Button -->
+                <div class="hs-dropdown relative inline-flex w-full sm:w-auto" (mouseenter)="onDropdownMouseEnter()"
+                    (mouseleave)="onDropdownMouseLeave()">
+                    <button id="hs-dropdown-categories" type="button"
+                        class="hs-dropdown-toggle inline-flex items-center justify-between gap-x-2 w-full sm:w-auto py-2 px-4 bg-white/10 hover:bg-white/20 rounded-lg text-white font-medium transition-all duration-300 backdrop-blur-sm focus:outline-hidden focus:bg-white/20"
+                        aria-haspopup="menu" aria-expanded="false" aria-label="Categories">
+                        <span class="flex items-center gap-2">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16M4 18h16" />
+                            </svg>
+                            All Categories
+                        </span>
+                        <svg class="hs-dropdown-open:rotate-180 w-4 h-4 transition-transform duration-200"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 9l6 6 6-6" />
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown -->
+                    <div class="hs-dropdown-menu z-50 transition-[opacity,margin] duration-300 hs-dropdown-open:opacity-100 opacity-0 hidden min-w-60 bg-white shadow-xl rounded-xl mt-2 border border-gray-100"
+                        role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-categories"
+                        (mouseenter)="onDropdownMenuEnter()" (mouseleave)="onDropdownMenuLeave()">
+                        <div class="p-1 space-y-0.5">
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                                href="#"><span class="text-lg">👔</span> Fashion & Clothing</a>
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                                href="#"><span class="text-lg">📱</span> Electronics</a>
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                                href="#"><span class="text-lg">🏠</span> Home & Garden</a>
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                                href="#"><span class="text-lg">🎮</span> Sports & Gaming</a>
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                                href="#"><span class="text-lg">💄</span> Beauty & Health</a>
+                            <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors duration-200"
+                                href="#"><span class="text-lg">📚</span> Books & Media</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="flex-1 w-full sm:max-w-2xl">
+                    <div class="relative">
+                        <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                            <svg class="h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </div>
+                        <input type="text"
+                            class="block w-full pl-10 pr-12 py-2.5 border-0 rounded-xl bg-white/95 backdrop-blur-sm text-gray-900 placeholder-gray-500 focus:ring-2 focus:ring-amber-400 focus:border-transparent transition-all duration-300 shadow-lg hover:shadow-xl"
+                            placeholder="Search for products, brands, and more...">
+                        <div class="absolute inset-y-0 right-0 flex items-center">
+                            <button type="submit"
+                                class="mr-3 p-1.5 text-white bg-amber-500 hover:bg-amber-600 rounded-lg transition-colors duration-200">
+                                <svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="flex justify-center sm:justify-end items-center space-x-4 text-sm">
+                    <a href="#" class="text-white/80 hover:text-white transition-colors duration-200">Today's Deals</a>
+                    <span class="hidden sm:inline text-white/40">|</span>
+                    <a href="#" class="text-white/80 hover:text-white transition-colors duration-200">Customer
+                        Service</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</header>
+
+
+<!-- Sidebar -->
+<div id="hs-sidebar-offcanvas" class="hs-overlay w-64
+hs-overlay-open:translate-x-0
+-translate-x-full transition-all duration-300 transform
+h-full
+hidden
+
+fixed top-0 start-0 bottom-0 z-60
+bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700" role="dialog" tabindex="-1"
+    aria-label="Sidebar">
+    <div class="relative flex flex-col h-full max-h-full">
+        <!-- Header -->
+        <header class="p-4 flex justify-between items-center gap-x-2">
+            <div class="flex items-center gap-x-3">
+                <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="none" stroke="currentColor"
+                    viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.293 2.293c-.39.39-.39 1.024 0 1.414L7 19m0-6a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z" />
+                </svg>
+                <span class="font-semibold text-xl text-gray-800 dark:text-white">My Cart</span>
+            </div>
+
+            <div class="-me-2">
+                <!-- Close Button -->
+                <button type="button"
+                    class="flex justify-center items-center gap-x-3 size-8 bg-white border border-gray-200 text-sm text-gray-600 hover:bg-gray-100 rounded-full disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-100 dark:bg-neutral-800 dark:border-neutral-700 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+                    data-hs-overlay="#hs-sidebar-offcanvas">
+                    <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M18 6 6 18" />
+                        <path d="m6 6 12 12" />
+                    </svg>
+                    <span class="sr-only">Close</span>
+                </button>
+                <!-- End Close Button -->
+            </div>
+        </header>
+        <!-- End Header -->
+
+        <!-- Shopping Cart Content -->
+        <div class="h-full flex flex-col">
+            <!-- Cart Header -->
+            <div class="px-4 pb-4 border-b border-gray-200 dark:border-neutral-700">
+                <div class="flex items-center justify-between">
+                    <h3 class="text-lg font-semibold text-gray-800 dark:text-white">Shopping Cart</h3>
+                    <span
+                        class="py-1 px-2 inline-flex items-center gap-x-1 text-xs bg-blue-100 text-blue-800 rounded-full dark:bg-blue-800 dark:text-blue-100">
+                        {{cartItemsCount}} items
+                    </span>
+                </div>
+            </div>
+
+            <!-- Cart Items -->
+            <div class="flex-1 overflow-y-auto px-4 py-3 space-y-3">
+                <!-- Empty Cart Message -->
+                <div *ngIf="cartItems.length === 0" class="text-center py-8">
+                    <svg class="mx-auto h-12 w-12 text-gray-400 mb-4" fill="none" stroke="currentColor"
+                        viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.293 2.293c-.39.39-.39 1.024 0 1.414L7 19m0-6a2 2 0 100 4 2 2 0 000-4zm8 0a2 2 0 100 4 2 2 0 000-4z" />
+                    </svg>
+                    <p class="text-gray-500 dark:text-neutral-400 text-sm">Your cart is empty</p>
+                    <button (click)="addSampleItem()"
+                        class="mt-3 py-2 px-4 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition-colors">
+                        Add Sample Item
+                    </button>
+                </div>
+
+                <!-- Cart Items List -->
+                <div *ngFor="let item of cartItems"
+                    class="bg-white dark:bg-neutral-800 rounded-lg border border-gray-200 dark:border-neutral-700 p-3">
+                    <div class="flex gap-3">
+                        <!-- Product Image -->
+                        <div class="flex-shrink-0">
+                            <img [src]="item.image" [alt]="item.name"
+                                class="w-16 h-16 rounded-lg object-cover bg-gray-100 dark:bg-neutral-700">
+                        </div>
+
+                        <!-- Product Details -->
+                        <div class="flex-1 min-w-0">
+                            <h4 class="text-sm font-medium text-gray-800 dark:text-white truncate">
+                                {{item.name}}
+                            </h4>
+                            <div class="mt-1 text-xs text-gray-500 dark:text-neutral-400">
+                                <span *ngIf="item.color">{{item.color}}</span>
+                                <span *ngIf="item.color && item.size"> • </span>
+                                <span *ngIf="item.size">{{item.size}}</span>
+                            </div>
+                            <div class="mt-2 flex items-center justify-between">
+                                <span class="text-sm font-semibold text-blue-600 dark:text-blue-400">
+                                    ${{item.price | number:'1.2-2'}}
+                                </span>
+
+                                <!-- Quantity Controls -->
+                                <div class="flex items-center gap-2">
+                                    <button (click)="updateCartItemQuantity(item.id, item.quantity - 1)"
+                                        [disabled]="item.quantity <= 1"
+                                        class="w-6 h-6 rounded-full bg-gray-200 dark:bg-neutral-600 text-gray-600 dark:text-neutral-300 hover:bg-gray-300 dark:hover:bg-neutral-500 disabled:opacity-50 flex items-center justify-center text-sm">
+                                        −
+                                    </button>
+                                    <span
+                                        class="text-sm font-medium text-gray-800 dark:text-white min-w-[20px] text-center">
+                                        {{item.quantity}}
+                                    </span>
+                                    <button (click)="updateCartItemQuantity(item.id, item.quantity + 1)"
+                                        class="w-6 h-6 rounded-full bg-gray-200 dark:bg-neutral-600 text-gray-600 dark:text-neutral-300 hover:bg-gray-300 dark:hover:bg-neutral-500 flex items-center justify-center text-sm">
+                                        +
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Total Price for Item -->
+                            <div class="mt-2 flex items-center justify-between">
+                                <span class="text-xs text-gray-500 dark:text-neutral-400">
+                                    Total: ${{(item.price * item.quantity) | number:'1.2-2'}}
+                                </span>
+                                <button (click)="removeCartItem(item.id)"
+                                    class="text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 text-xs">
+                                    Remove
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Footer -->
+            <div *ngIf="cartItems.length > 0" class="border-t border-gray-200 dark:border-neutral-700 p-4 space-y-3">
+                <!-- Cart Summary -->
+                <div class="flex justify-between items-center">
+                    <span class="text-sm font-medium text-gray-800 dark:text-white">Subtotal:</span>
+                    <span class="text-lg font-bold text-gray-800 dark:text-white">${{cartTotal | number:'1.2-2'}}</span>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="space-y-2">
+                    <button routerLink="/cart"
+                        class="w-full py-3 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors">
+                        Proceed to Checkout
+                    </button>
+                    <button (click)="clearCart()"
+                        class="w-full py-2 bg-gray-200 dark:bg-neutral-600 text-gray-800 dark:text-neutral-200 text-sm font-medium rounded-lg hover:bg-gray-300 dark:hover:bg-neutral-500 transition-colors">
+                        Clear Cart
+                    </button>
+                </div>
+
+                <!-- Continue Shopping -->
+                <div class="text-center">
+                    <button data-hs-overlay="#hs-sidebar-offcanvas"
+                        class="text-blue-600 dark:text-blue-400 text-sm hover:underline">
+                        Continue Shopping
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- End Body -->
+    </div>
+</div>
+<!-- End Sidebar -->
+
+<!-- Spacer to prevent content from going under fixed header -->
+<!-- <div class="h-32"></div> -->

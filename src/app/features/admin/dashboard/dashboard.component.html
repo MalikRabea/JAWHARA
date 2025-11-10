@@ -1,0 +1,337 @@
+
+<!-- Dashboard Header -->
+<div class="bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl p-8 mb-8 shadow-lg border border-slate-200">
+  <div class="flex items-center space-x-4">
+    <div class="p-4 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl shadow-lg">
+      <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+      </svg>
+    </div>
+    <div>
+      <h1 class="text-4xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">Admin Dashboard</h1>
+      <p class="text-lg font-semibold text-slate-600 mt-2">Welcome back! Here's what's happening with your store today.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Key Metrics Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+  <!-- Total Revenue -->
+  <div class="group bg-white rounded-2xl shadow-lg border border-slate-200 p-6 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-green-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="relative flex items-center">
+      <div class="flex-shrink-0">
+        <div class="w-14 h-14 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="ml-4">
+        <p class="text-sm font-semibold text-slate-600 uppercase tracking-wide">Total Revenue</p>
+        <p class="text-3xl font-bold text-slate-900 mt-1">${{ totalRevenue | number:'1.2-2' }}</p>
+        <div class="flex items-center mt-2">
+          <span class="text-xs text-green-600 font-medium">+12.5% from last month</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Total Orders -->
+  <div class="group bg-white rounded-2xl shadow-lg border border-slate-200 p-6 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="relative flex items-center">
+      <div class="flex-shrink-0">
+        <div class="w-14 h-14 bg-gradient-to-br from-blue-500 to-blue-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="ml-4">
+        <p class="text-sm font-semibold text-slate-600 uppercase tracking-wide">Total Orders</p>
+        <p class="text-3xl font-bold text-slate-900 mt-1">{{ totalOrders | number }}</p>
+        <div class="flex items-center mt-2">
+          <span class="text-xs text-green-600 font-medium">+8.2% from last month</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Total Customers -->
+  <div class="group bg-white rounded-2xl shadow-lg border border-slate-200 p-6 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="relative flex items-center">
+      <div class="flex-shrink-0">
+        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="ml-4">
+        <p class="text-sm font-semibold text-slate-600 uppercase tracking-wide">Total Customers</p>
+        <p class="text-3xl font-bold text-slate-900 mt-1">{{ totalCustomers | number }}</p>
+        <div class="flex items-center mt-2">
+          <span class="text-xs text-green-600 font-medium">+15.3% from last month</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Total Products -->
+  <div class="group bg-white rounded-2xl shadow-lg border border-slate-200 p-6 hover:shadow-2xl hover:scale-105 transition-all duration-300 cursor-pointer relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-amber-50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+    <div class="relative flex items-center">
+      <div class="flex-shrink-0">
+        <div class="w-14 h-14 bg-gradient-to-br from-amber-500 to-amber-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-300">
+          <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="ml-4">
+        <p class="text-sm font-semibold text-slate-600 uppercase tracking-wide">Total Products</p>
+        <p class="text-3xl font-bold text-slate-900 mt-1">{{ totalProducts | number }}</p>
+        <div class="flex items-center mt-2">
+          <span class="text-xs text-green-600 font-medium">+5.1% from last month</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Charts Section -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+  <!-- Revenue Analytics Chart -->
+  <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+    <div class="bg-gradient-to-r from-slate-50 to-blue-50 px-6 py-4 border-b border-slate-200">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="p-2 bg-gradient-to-br from-green-500 to-green-600 rounded-lg">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-800">Revenue Analytics</h3>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button class="px-3 py-1 text-xs font-semibold text-slate-600 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors duration-200">7D</button>
+          <button class="px-3 py-1 text-xs font-semibold text-white bg-blue-600 rounded-lg shadow-sm">30D</button>
+          <button class="px-3 py-1 text-xs font-semibold text-slate-600 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors duration-200">90D</button>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <app-payments-chart></app-payments-chart>
+    </div>
+  </div>
+  
+  <!-- Visitor Analytics Chart -->
+  <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+    <div class="bg-gradient-to-r from-slate-50 to-purple-50 px-6 py-4 border-b border-slate-200">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="p-2 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-800">Visitor Analytics</h3>
+        </div>
+        <div class="flex items-center space-x-2">
+          <button class="px-3 py-1 text-xs font-semibold text-slate-600 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors duration-200">7D</button>
+          <button class="px-3 py-1 text-xs font-semibold text-white bg-purple-600 rounded-lg shadow-sm">30D</button>
+          <button class="px-3 py-1 text-xs font-semibold text-slate-600 bg-slate-100 rounded-lg hover:bg-slate-200 transition-colors duration-200">90D</button>
+        </div>
+      </div>
+    </div>
+    <div class="p-6">
+      <app-vistors-chart></app-vistors-chart>
+    </div>
+  </div>
+</div>
+
+<!-- Additional Dashboard Sections -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+  <!-- Recent Orders -->
+  <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+    <div class="bg-gradient-to-r from-slate-50 to-indigo-50 px-6 py-4 border-b border-slate-200">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="p-2 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-lg">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-800">Recent Orders</h3>
+        </div>
+        <a href="/admin/orders" class="text-sm font-semibold text-indigo-600 hover:text-indigo-800 transition-colors duration-200">View All</a>
+      </div>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="min-w-full divide-y divide-slate-200">
+        <thead class="bg-slate-50">
+          <tr>
+            <th class="px-6 py-3 text-left text-xs font-bold text-slate-600 uppercase tracking-wider">Order ID</th>
+            <th class="px-6 py-3 text-left text-xs font-bold text-slate-600 uppercase tracking-wider">Customer</th>
+            <th class="px-6 py-3 text-left text-xs font-bold text-slate-600 uppercase tracking-wider">Amount</th>
+            <th class="px-6 py-3 text-left text-xs font-bold text-slate-600 uppercase tracking-wider">Status</th>
+            <th class="px-6 py-3 text-left text-xs font-bold text-slate-600 uppercase tracking-wider">Date</th>
+          </tr>
+        </thead>
+        <tbody class="bg-white divide-y divide-slate-200">
+          <tr *ngFor="let order of recentOrders" class="hover:bg-slate-50 transition-colors duration-200">
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-semibold text-slate-900">#{{ order.id }}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-900">{{ order.customerName }}</td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm font-bold text-slate-900">${{ order.amount | number:'1.2-2' }}</td>
+            <td class="px-6 py-4 whitespace-nowrap">
+              <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-bold"
+                    [ngClass]="{
+                      'bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-800 border border-amber-200': order.status === 'pending',
+                      'bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 border border-blue-200': order.status === 'processing',
+                      'bg-gradient-to-r from-purple-100 to-violet-100 text-purple-800 border border-purple-200': order.status === 'shipped',
+                      'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 border border-green-200': order.status === 'delivered',
+                      'bg-gradient-to-r from-red-100 to-rose-100 text-red-800 border border-red-200': order.status === 'cancelled'
+                    }">
+                {{ order.status }}
+              </span>
+            </td>
+            <td class="px-6 py-4 whitespace-nowrap text-sm text-slate-500">{{ order.date | date:'short' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Top Products -->
+  <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+    <div class="bg-gradient-to-r from-slate-50 to-amber-50 px-6 py-4 border-b border-slate-200">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="p-2 bg-gradient-to-br from-amber-500 to-amber-600 rounded-lg">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-800">Top Selling Products</h3>
+        </div>
+        <a href="/admin/products" class="text-sm font-semibold text-amber-600 hover:text-amber-800 transition-colors duration-200">View All</a>
+      </div>
+    </div>
+    <div class="p-6">
+      <div class="space-y-4">
+        <div class="group flex items-center space-x-4 p-4 rounded-xl hover:bg-slate-50 transition-all duration-200" *ngFor="let product of topProducts">
+          <div class="flex-shrink-0">
+            <img [src]="product.image" [alt]="product.name" class="h-12 w-12 rounded-xl object-cover shadow-md group-hover:scale-110 transition-transform duration-300">
+          </div>
+          <div class="flex-1 min-w-0">
+            <h4 class="text-sm font-bold text-slate-900 truncate group-hover:text-slate-700 transition-colors duration-200">{{ product.name }}</h4>
+            <p class="text-sm text-slate-500">{{ product.category }}</p>
+            <div class="flex items-center justify-between mt-1">
+              <span class="text-xs font-semibold text-slate-600">{{ product.sales }} sold</span>
+              <span class="text-sm font-bold text-slate-900">${{ product.price | number:'1.2-2' }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Activity Feed and Quick Actions -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+  <!-- Activity Feed -->
+  <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+    <div class="bg-gradient-to-r from-slate-50 to-rose-50 px-6 py-4 border-b border-slate-200">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center space-x-3">
+          <div class="p-2 bg-gradient-to-br from-rose-500 to-rose-600 rounded-lg">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-bold text-slate-800">Recent Activity</h3>
+        </div>
+        <a href="#" class="text-sm font-semibold text-rose-600 hover:text-rose-800 transition-colors duration-200">View All</a>
+      </div>
+    </div>
+    <div class="p-6">
+      <div class="space-y-4">
+        <div class="flex items-start space-x-4 p-4 rounded-xl hover:bg-slate-50 transition-all duration-200" *ngFor="let activity of recentActivities">
+          <div class="flex-shrink-0">
+            <div class="w-10 h-10 rounded-xl flex items-center justify-center shadow-md"
+                 [ngClass]="{
+                   'bg-gradient-to-br from-green-500 to-green-600': activity.type === 'order',
+                   'bg-gradient-to-br from-blue-500 to-blue-600': activity.type === 'user',
+                   'bg-gradient-to-br from-purple-500 to-purple-600': activity.type === 'product',
+                   'bg-gradient-to-br from-amber-500 to-amber-600': activity.type === 'payment'
+                 }">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-sm font-semibold text-slate-900">{{ activity.description }}</p>
+            <span class="text-xs text-slate-500">{{ activity.time | date:'short' }}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Quick Actions -->
+  <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+    <div class="bg-gradient-to-r from-slate-50 to-emerald-50 px-6 py-4 border-b border-slate-200">
+      <div class="flex items-center space-x-3">
+        <div class="p-2 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-lg">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-bold text-slate-800">Quick Actions</h3>
+      </div>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-2 gap-4">
+        <button class="group flex flex-col items-center p-6 rounded-xl border-2 border-slate-200 hover:border-blue-300 hover:bg-blue-50 transition-all duration-200 transform hover:scale-105" routerLink="/admin/products/add">
+          <div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"></path>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-slate-700 group-hover:text-blue-700 transition-colors duration-200">Add Product</span>
+        </button>
+        
+        <button class="group flex flex-col items-center p-6 rounded-xl border-2 border-slate-200 hover:border-indigo-300 hover:bg-indigo-50 transition-all duration-200 transform hover:scale-105" routerLink="/admin/orders">
+          <div class="w-12 h-12 bg-gradient-to-br from-indigo-500 to-indigo-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-slate-700 group-hover:text-indigo-700 transition-colors duration-200">View Orders</span>
+        </button>
+        
+        <button class="group flex flex-col items-center p-6 rounded-xl border-2 border-slate-200 hover:border-purple-300 hover:bg-purple-50 transition-all duration-200 transform hover:scale-105" routerLink="/admin/users">
+          <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-slate-700 group-hover:text-purple-700 transition-colors duration-200">Manage Users</span>
+        </button>
+        
+        <button class="group flex flex-col items-center p-6 rounded-xl border-2 border-slate-200 hover:border-amber-300 hover:bg-amber-50 transition-all duration-200 transform hover:scale-105" routerLink="/admin/categories">
+          <div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mb-3 group-hover:scale-110 transition-transform duration-300">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"></path>
+            </svg>
+          </div>
+          <span class="text-sm font-semibold text-slate-700 group-hover:text-amber-700 transition-colors duration-200">Categories</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

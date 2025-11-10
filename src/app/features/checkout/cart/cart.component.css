@@ -1,0 +1,42 @@
+/* Cart component mobile-first enhancements */
+
+.cart-root .qty-btn {
+  min-width: 40px;
+  min-height: 40px;
+  line-height: 1;
+}
+
+.cart-root .qty-display {
+  min-width: 40px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.cart-root .item-card {
+  transition: box-shadow 200ms ease, transform 200ms ease;
+}
+
+.cart-root .item-card:hover {
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+@media (max-width: 640px) {
+  .cart-root {
+    scroll-margin-top: 72px;
+  }
+
+  .cart-root .item-image {
+    height: 88px;
+  }
+
+  .cart-root .remove-btn {
+    padding: 10px 12px;
+    border-radius: 10px;
+  }
+
+  .cart-root .summary-row {
+    gap: 0.75rem;
+  }
+}
+
+

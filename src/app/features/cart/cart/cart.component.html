@@ -1,0 +1,106 @@
+<section class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8">
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <div class="lg:col-span-2">
+      <div class="flex items-center justify-between mb-4">
+        <div class="flex items-center gap-2">
+          <h2 class="text-2xl font-bold">Your Cart</h2>
+          <span class="inline-flex h-6 min-w-6 items-center justify-center rounded-full bg-gray-900 px-2 text-xs font-semibold text-white">{{ cartCount }}</span>
+        </div>
+        <button (click)="clearCart()" class="hs-tooltip inline-flex items-center gap-x-2 rounded-lg border border-red-200 bg-red-50 px-3 py-2 text-sm font-medium text-red-700 hover:bg-red-100">
+          <span class="hs-tooltip-toggle">Clear cart</span>
+        </button>
+      </div>
+
+      <div *ngIf="cartItems.length === 0" class="rounded-xl border border-dashed border-gray-300 p-12 text-center">
+        <div class="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-gray-100 text-gray-700">🛒</div>
+        <p class="text-gray-700 font-medium">Your cart is empty</p>
+        <p class="text-sm text-gray-500">Explore products and add items to your cart.</p>
+        <a routerLink="/products" class="mt-5 inline-flex items-center justify-center rounded-lg bg-gray-900 px-4 py-2 text-sm font-semibold text-white hover:bg-gray-800">Browse products</a>
+      </div>
+
+      <ul *ngIf="cartItems.length > 0" class="space-y-4">
+        <li *ngFor="let item of cartItems; trackBy: trackByItemId" class="rounded-xl border border-gray-200 p-4">
+          <div class="flex items-center gap-4">
+            <img [src]="item.image" [alt]="item.name" class="h-20 w-20 rounded-lg object-cover" />
+            <div class="flex-1">
+              <div class="flex items-start justify-between">
+                <div>
+                  <h3 class="font-semibold text-gray-900">{{ item.name }}</h3>
+                  <p class="text-sm text-gray-500" *ngIf="item.size || item.color">
+                    <span *ngIf="item.size">Size: {{ item.size }}</span>
+                    <span *ngIf="item.size && item.color" class="mx-1">•</span>
+                    <span *ngIf="item.color">Color: {{ item.color }}</span>
+                  </p>
+                </div>
+                <div class="text-right">
+                  <p class="text-sm text-gray-500">Each</p>
+                  <p class="text-lg font-semibold">{{ item.price | currency }}</p>
+                </div>
+              </div>
+
+              <div class="mt-4 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                  <button type="button" (click)="updateQuantity(item, item.quantity - 1)" class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50">-</button>
+                  <input type="number" class="block w-16 rounded-lg border-gray-200 text-center focus:border-gray-400 focus:ring-0" [ngModel]="item.quantity" (ngModelChange)="updateQuantity(item, $event)" min="1" [max]="item.maxQuantity || 99"/>
+                  <button type="button" (click)="updateQuantity(item, item.quantity + 1)" class="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-gray-200 text-gray-700 hover:bg-gray-50">+</button>
+                </div>
+
+                <div class="flex items-center gap-4">
+                  <p class="text-right text-gray-900"><span class="text-sm text-gray-500 mr-1">Subtotal:</span> <span class="font-semibold">{{ (item.price * item.quantity) | currency }}</span></p>
+                  <button type="button" (click)="removeItem(item)" class="inline-flex items-center gap-x-2 rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    Remove
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <aside class="lg:col-span-1">
+      <div class="rounded-xl border border-gray-200 p-6 lg:sticky lg:top-6">
+        <h3 class="mb-4 text-lg font-semibold">Order Summary</h3>
+        <div class="mb-4">
+          <div class="mb-2 flex items-center justify-between text-xs text-gray-600">
+            <span>Free shipping at {{ freeShippingThreshold | currency }}</span>
+            <span>{{ freeShippingProgress }}%</span>
+          </div>
+          <div class="h-2 w-full rounded-full bg-gray-100">
+            <div class="h-2 rounded-full bg-gray-900" [style.width.%]="freeShippingProgress"></div>
+          </div>
+          <p class="mt-1 text-xs text-gray-600" *ngIf="amountToFreeShipping > 0">Add {{ amountToFreeShipping | currency }} for free shipping</p>
+          <p class="mt-1 text-xs font-medium text-emerald-700" *ngIf="amountToFreeShipping === 0">You unlocked free shipping!</p>
+        </div>
+
+        <div class="mb-4">
+          <label class="sr-only" for="coupon">Coupon</label>
+          <div class="flex gap-2">
+            <input id="coupon" type="text" [(ngModel)]="couponCode" placeholder="Coupon code" class="flex-1 rounded-lg border border-red-500 focus:border-gray-400 focus:ring-0" />
+            <button (click)="applyCoupon()" class="inline-flex items-center rounded-lg border border-gray-200 px-3 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Apply</button>
+          </div>
+        </div>
+        <dl class="space-y-3 text-sm">
+          <div class="flex items-center justify-between">
+            <dt class="text-gray-600">Subtotal</dt>
+            <dd class="font-medium">{{ totalAmount | currency }}</dd>
+          </div>
+          <div class="flex items-center justify-between">
+            <dt class="text-gray-600">Shipping</dt>
+            <dd class="font-medium">Free</dd>
+          </div>
+          <div class="flex items-center justify-between">
+            <dt class="text-gray-600">Tax</dt>
+            <dd class="font-medium">Included</dd>
+          </div>
+          <div class="h-px bg-gray-200"></div>
+          <div class="flex items-center justify-between text-base">
+            <dt class="font-semibold">Total</dt>
+            <dd class="font-semibold">{{ totalAmount | currency }}</dd>
+          </div>
+        </dl>
+        <button routerLink="/checkout" class="mt-6 inline-flex w-full items-center justify-center rounded-lg bg-gray-900 px-4 py-3 text-sm font-semibold text-white hover:bg-gray-800">Checkout</button>
+      </div>
+    </aside>
+  </div>
+</section>
