@@ -6,7 +6,7 @@
     "start": "ng serve",
     "build:client": "ng build --configuration production",
     "build:server": "ng run Ecom-Front:server:production",
-    "build:ssr": "npm run build:client && npm run build:server",
+      "build:ssr": "npm install --legacy-peer-deps && ng build && ng run Ecom-Front:server",
     "serve:ssr": "node dist/ecom-front/server/main.js",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
